@@ -1,17 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Contacts</title>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-	<div class="container">
-		
-	
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
 
-		<div class="shelfs">
+{% block title %}
+	<title>Contacts</title>
+{% endblock %}
+
+{% block content %}
+	<div class="shelf shelf1 shelf__max our_products_range">
+		<div class="poster padding-site">
+			<header class="title">
+				<a class="avatar" href="/"><img src="/static/img/logo.svg" alt="logo"></a>
+				<ul class="menu">
+					<li><a href="/" class="menu__link">HOME</a></li>
+					<li><a href="/products" class="menu__link ">PRODUCTS</a></li>
+					<li><a href="#" class="menu__link">HISTORY</a></li>
+					<li><a href="#" class="menu__link">SHOWROOM</a></li>
+					<li><a href="#" class="menu__link active__link">CONTACT</a></li>
+					<li><a href="#" class="menu__link"><img src="/static/img/search.svg" alt="search"></a></li>
+				</ul>
+			</header>
+		</div>
+		<div class="poster__content poster__content2">
+			<p class="headline__title headline__max">Contact Us</p>
+		</div>
+	</div>
+
+	<div class="shelf shelf2 shelf__min" style="margin-bottom:  120px">
+		<div class="contact">
+			<p class="fa-map-marker-alt__p"><i class="fas fa-map-marker-alt"></i></p>
+			<p class="headline__contact">California</p>
+			<ul class="contact__ul">
+				<li class="contact__li">Phone:<br> <span class="cb">1900 - 1234 -5678</span></li>
+				<li class="contact__li">Email:<br>   <span class="cb">info@interior.com</span></li>
+				<li class="contact__li">Address:<br>  12 W 1st St, 90001 Los Angeles, California</li>
+			</ul>
+		</div>
+		<div class="contact">
+			<p class="fa-map-marker-alt__p"><i class="fas fa-map-marker-alt"></i></p>
+			<p class="headline__contact">California</p>
+			<ul class="contact__ul">
+				<li class="contact__li">Phone:<br> <span class="cb">1900 - 1234 -5678</span></li>
+				<li class="contact__li">Email:<br>   <span class="cb">info@interior.com</span></li>
+				<li class="contact__li">Address:<br>  12 W 1st St, 90001 Los Angeles, California</li>
+			</ul>
+		</div>
+		<div class="contact">
+			<p class="fa-map-marker-alt__p"><i class="fas fa-map-marker-alt"></i></p>
+			<p class="headline__contact">California</p>
+			<ul class="contact__ul">
+				<li class="contact__li">Phone:<br> <span class="cb">1900 - 1234 -5678</span></li>
+				<li class="contact__li">Email:<br>   <span class="cb">info@interior.com</span></li>
+				<li class="contact__li">Address:<br>  12 W 1st St, 90001 Los Angeles, California</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}
+
 
 			<div class="shelf shelf1 shelf__max our_products_range">
 				<div class="poster padding-site">
@@ -64,63 +108,3 @@
 
 			
 
-		</div>
-
-
-		<footer class="footer">
-			<div class="footer__div">
-			<div class="contact_us__info">
-				<p class="headline__footer">CONTACT US</p>
-				<p class="text__st">132A Bridge Road Richmond VIC Australia.</p>
-				<p class="text__st">Talk to us on 1300 132 info@interior.com</p>
-			</div>
-
-			<div class="useful_information__wrapper">
-			<p class="headline__footer">USEFUL INFORMATION</p>
-			<div class="useful_information">
-				
-				<a href="#" class="text_black__footer">
-					Sales terms
-				</a>
-				<a href="#" class="text_black__footer">
-					Customer care
-				</a>
-				<a href="#" class="text_black__footer">
-					Delivery
-				</a>
-				<a href="#" class="text_black__footer">
-					Architect accounts
-				</a>
-				<a href="#" class="text_black__footer">
-					Careers
-				</a>
-				<a href="#" class="text_black__footer">
-					Exchanges & returns
-				</a>
-
-			</div>
-			</div>
-
-			<div class="lets_stay_in_touch">
-				<p class="headline__footer">LET'S STAY IN TOUCH</p>
-				<p class="text__st">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
-				<div class="input__button">
-				<input class="input" type="text" placeholder="your email address"><i class="fab fa-telegram-plane"></i>
-				</div>
-			</div>
-			</div>
-			<div class="info__footer">
-				<p class="text__footer">&copy; Copyright - INTERIOR 2016. All Rights Reserved.</p>
-				<div class="social-links">
-					<a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-					<a href="#" class="social-link"><i class="fab fa-twitter-square"></i></a>
-					<a href="#" class="social-link"><i class="fab fa-google-plus-square"></i></a>
-					<a href="#" class="social-link">
-					<i class="fab fa-pinterest-square"></i></a>
-				</div>
-				<p class="text__footer">Terms & Conditions  /  Privacy policy & Cookies</p>
-			</div>		
-		</footer>
-	</div>
-</body>
-</html>
