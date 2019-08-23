@@ -8,7 +8,7 @@ menu = [
 ]
 def main(request):
     context = {
-        'title':'/',
+        'title':'Главная',
         "list_menu": menu,
     }
     return render(request, 'mainapp/index.html', context=context)
@@ -16,7 +16,7 @@ def main(request):
 
 def contacts(request):
     context = {
-        'title': '/contacts',
+        'title': 'Контакты',
         "list_menu": menu,
     }
     return render(request, 'mainapp/contacts.html', context=context)
@@ -24,7 +24,7 @@ def contacts(request):
 
 def products(request):
     context = {
-        'title': '/products',
+        'title': 'Продукты',
         "list_menu": menu,
     }
     return render(request, 'mainapp/products.html', context=context)
@@ -32,7 +32,7 @@ def products(request):
 
 def product(request):
     context = {
-        'title': '/product',
+        'title': 'Продукт',
         "list_menu": menu,
     }
     return render(request, 'mainapp/product.html', context=context)
