@@ -1,11 +1,12 @@
+{% load staticfiles %}
 {% block menu %}
-    <a class="avatar" href="/"><img src="/static/img/logo.svg" alt="logo"></a>
+    <a class="avatar" href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
     <ul class="menu">
         {%for li_menu in list_menu %}
 
             <li><a href='{{ li_menu.href }}' class="menu__link {% if request.resolver_match.url_name == li_menu.name %}active__link{% endif %}">{{ li_menu.name }}</a></li>
         {% endfor %}
-        <li><a href="#" class="menu__link"><img src="/static/img/search.svg" alt="search"></a></li>
+        <li><a href="#" class="menu__link"><img src="{% static 'img/search.svg' %}" alt="search"></a></li>
     </ul>
 {% endblock %}
 {% if requist. %}active__link{% endif %}
