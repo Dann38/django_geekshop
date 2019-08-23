@@ -1,22 +1,14 @@
 {% extends 'mainapp/base.html' %}
 {% load staticfiles %}
 
-{% block titel %}
+{% block title %}
 	<title>Products</title>
 {% endblock %}
 {% block content %}
 	<div class="shelf shelf1 shelf__max our_products_range">
 		<div class="poster padding-site">
 			<header class="title">
-				<a class="avatar" href="/"><img src="/static/img/logo.svg" alt="logo"></a>
-				<ul class="menu">
-					<li><a href="/" class="menu__link">HOME</a></li>
-					<li><a href="#" class="menu__link active__link">PRODUCTS</a></li>
-					<li><a href="#" class="menu__link">HISTORY</a></li>
-					<li><a href="#" class="menu__link">SHOWROOM</a></li>
-					<li><a href="/contacts" class="menu__link">CONTACT</a></li>
-					<li><a href="#" class="menu__link"><img src="/static/img/search.svg" alt="search"></a></li>
-				</ul>
+				{% include 'mainapp/includes/inc_menu.html' %}
 			</header>
 		</div>
 		<div class="poster__content poster__content2">
