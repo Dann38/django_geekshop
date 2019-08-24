@@ -3,8 +3,8 @@
     <a class="avatar" href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
     <ul class="menu">
         {%for li_menu in list_menu %}
-            <li><a href='{{ li_menu.href }}' class="menu__link
-            {% if request.resolver_match.url_name == li_menu.name %}
+            <li><a href='{% url li_menu.href %}' class="menu__link
+            {% if request.resolver_match.url_name == li_menu.href %}
                 active__link
             {% endif %}">
                 {{ li_menu.name }}

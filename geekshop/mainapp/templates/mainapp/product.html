@@ -9,24 +9,17 @@
 					</header>
 				</div>
 				<div class="product__menu">
-					<ul class="menu">
-						<li><a href="#" class="menu__product1 active__link1">ALL</a></li>
-						<li><a href="#" class="menu__product1">HOME</a></li>
-						<li><a href="#" class="menu__product1">OFFICE</a></li>
-						<li><a href="#" class="menu__product1">FURNITURE</a></li>
-						<li><a href="#" class="menu__product1">MODERN </a></li>
-						<li><a href="#" class="menu__product1">CLASSIC</a></li>
-					</ul>
+					{% include 'mainapp/includes/inc_menu_product.html' %}
 				</div>
 			</div>
 
 			<div class="product__max__shop shelf shelf__min ">
 				<div class="photos__product">
-					<a href="" class="big__img"><img src="img/slider1.png" alt="product"></a>
+					<a href="" class="big__img"><img src="{% static 'img/slider1.png' %}" alt="product"></a>
 					<div class="min__imgs">
-						<a href="#" class="min__img"><img src="img/controll.png" alt="min product"></a>
-						<a href="#" class="min__img"><img src="img/controll11.png" alt="min product"></a>
-						<a href="#" class="min__img"><img src="img/controll2.png" alt="min product"></a>
+						<a href="#" class="min__img"><img src="{% static 'img/controll.png' %}" alt="min product"></a>
+						<a href="#" class="min__img"><img src="{% static 'img/controll11.png' %}" alt="min product"></a>
+						<a href="#" class="min__img"><img src="{% static 'img/controll2.png' %}" alt="min product"></a>
 					</div>
 				</div>
 				<div class="info__product__shop">
@@ -47,15 +40,15 @@
 			<div class="shelf shelf3 shelf__min">
 				<div class="menu__shelf__min">
 					<p class="headline__normal">Trending Products</p>
-					<a class="button__ghost" href="products.html">EXPLORE ALL ></a>
+					<a class="button__ghost" href="{% url 'products' %}">EXPLORE ALL ></a>
 				</div>
 				<div class="products">
-					<a href="#" class="product__normal" style="background-image: url(img/product-11.png);"></a>
-					<a href="#" class="product__normal" style="background-image: url(img/product-21.png);"></a>
-					<a href="#" class="product__normal" style="background-image: url(img/product-31.png);"></a>
-					<a href="#" class="product__normal" style="background-image: url(img/product-41.png);"></a>
-					<a href="#" class="product__normal" style="background-image: url(img/product-5.png);"></a>
-					<a href="#" class="product__normal" style="background-image: url(img/product-6.png);"></a>
+					<a href="{% url 'product' %}" class="product__normal" style="background-image: url(/static/img/product-11.png);"></a>
+					<!--<a href="#" class="product__normal" style="background-image: url(img/product-21.png);"></a>-->
+					<!--<a href="#" class="product__normal" style="background-image: url(img/product-31.png);"></a>-->
+					<!--<a href="#" class="product__normal" style="background-image: url(img/product-41.png);"></a>-->
+					<!--<a href="#" class="product__normal" style="background-image: url(img/product-5.png);"></a>-->
+					<!--<a href="#" class="product__normal" style="background-image: url(img/product-6.png);"></a>-->
 				</div>
 			</div>
 

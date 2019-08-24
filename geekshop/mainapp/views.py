@@ -2,9 +2,9 @@ from django.shortcuts import render
 
 # Create your views here.
 menu = [
-    {'href': '/', 'name': 'home'},
-    {'href': '/products/all', 'name': 'products'},
-    {'href': '/contacts', 'name': 'contacts'},
+    {'href': 'main', 'name': 'home'},
+    {'href': 'products', 'name': 'products'},
+    {'href': 'contacts', 'name': 'contacts'},
 ]
 
 def main(request):
@@ -25,12 +25,12 @@ def contacts(request):
 
 def products(request):
     product_type = [
-        {'href': '/products/all', 'name': 'ALL'},
-        {'href': '/products/home', 'name': 'HOME'},
-        {'href': '/products/office', 'name': 'OFFICE'},
-        {'href': '/products/furniture', 'name': 'FURNITURE'},
-        {'href': '/products/modern', 'name': 'MODERN'},
-        {'href': '/products/classic', 'name': 'CLASSIC'},
+        {'href': 'all', 'name': 'all'},
+        {'href': 'home', 'name': 'home'},
+        {'href': 'office', 'name': 'office'},
+        {'href': 'furniture', 'name': 'furniture'},
+        {'href': 'modern', 'name': 'modern'},
+        {'href': 'classic', 'name': 'classic'},
     ]
 
     context = {
