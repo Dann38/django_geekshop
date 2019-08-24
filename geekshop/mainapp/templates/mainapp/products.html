@@ -1,9 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load staticfiles %}
 
-{% block title %}
-	<title>Products</title>
-{% endblock %}
 {% block content %}
 	<div class="shelf shelf1 shelf__max our_products_range">
 		<div class="poster padding-site">
@@ -20,14 +17,7 @@
 
 	<div class="shelf shelf2 shelf__min">
 		<div class="menu__shelf__min">
-			<ul class="menu">
-				<li><a href="#" class="headline__menu products__menu active__link">ALL</a></li>
-				<li><a href="#" class="headline__menu products__menu">HOME</a></li>
-				<li><a href="#" class="headline__menu products__menu">OFFICE</a></li>
-				<li><a href="#" class="headline__menu products__menu">FURNITURE</a></li>
-				<li><a href="#" class="headline__menu products__menu">MODERN </a></li>
-				<li><a href="#" class="headline__menu products__menu">CLASSIC</a></li>
-			</ul>
+			{% include 'mainapp/includes/inc_menu_product.html' %}
 		</div>
 		<div class="products">
 			<a href="#" class="product__normal" style="background-image: url(/static/img/product-11.png);"></a>
