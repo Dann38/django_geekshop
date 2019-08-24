@@ -21,6 +21,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainapp.main, name='home'),
     path('contacts/', mainapp.contacts, name='contacts'),
-    path('products/', mainapp.products, name='products'),
+    path('products/all/', mainapp.products, name='products'),
+
+    path('products/all', mainapp.products, name='ALL'),
+    path('products/home', mainapp.products, name='HOME'),
+    path('products/office', mainapp.products, name='OFFICE'),
+    path('products/furniture', mainapp.products, name='FURNITURE'),
+    path('products/modern', mainapp.products, name='MODERN'),
+    path('products/classic', mainapp.products, name='CLASSIC'),
+
     path('product/', mainapp.product, name='product'),
 ]
