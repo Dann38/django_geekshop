@@ -2,7 +2,7 @@
 {% block menu_product %}
     <ul class="menu">
         {% for menu_li in product_list_menu %}
-            <li><a href="{% url menu_li.href %}" class="menu__product1 {%if menu_li.name == request.resolver_match.url_name %}active__link1{% endif %}">{{ menu_li.name }}</a></li>
+            <li><a href="{% url menu_li.href %}" class="menu__product1 {% if menu_li.name == request.resolver_match.url_name %}active__link1{% endif %}">{{ menu_li.name }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}
