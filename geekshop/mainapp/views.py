@@ -7,6 +7,15 @@ menu = [
     {'href': 'contacts', 'name': 'contacts'},
 ]
 
+product_type = [
+    {'href': 'all', 'name': 'all'},
+    {'href': 'home', 'name': 'home'},
+    {'href': 'office', 'name': 'office'},
+    {'href': 'furniture', 'name': 'furniture'},
+    {'href': 'modern', 'name': 'modern'},
+    {'href': 'classic', 'name': 'classic'},
+]
+
 def main(request):
     context = {
         'title':'Главная',
@@ -24,15 +33,6 @@ def contacts(request):
 
 
 def products(request):
-    product_type = [
-        {'href': 'all', 'name': 'all'},
-        {'href': 'home', 'name': 'home'},
-        {'href': 'office', 'name': 'office'},
-        {'href': 'furniture', 'name': 'furniture'},
-        {'href': 'modern', 'name': 'modern'},
-        {'href': 'classic', 'name': 'classic'},
-    ]
-
     context = {
         'title': 'Продукты',
         "list_menu": menu,
@@ -45,5 +45,6 @@ def product(request):
     context = {
         'title': 'Продукт',
         "list_menu": menu,
+        'product_list_menu': product_type
     }
     return render(request, 'mainapp/product.html', context=context)
