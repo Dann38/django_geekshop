@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% block title %}
+		<title>{{ title|title }}</title>
+	{% endblock %}
+    {% block css %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock%}
+    {% block fonts %}
+        <link href="{% static 'fonts/Montserrat.ttf' %}" rel="stylesheet">
+    {% endblock %}
+	{% block js %}
+	{% endblock %}
+	<!--<link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700" rel="stylesheet">&ndash;&gt;-->
+</head>
+<body>
+	<div class="container">
+
+		<div class="shelfs">
+        	{% block content %}
+
+            {% endblock %}
+		</div>
+
+        <footer class="footer">
+			<div class="footer__div">
+				<div class="contact_us__info">
+					<p class="headline__footer">CONTACT US</p>
+					<p class="text__st">132A Bridge Road Richmond VIC Australia.</p>
+					<p class="text__st">Talk to us on 1300 132 info@interior.com</p>
+				</div>
+
+				<div class="useful_information__wrapper">
+					<p class="headline__footer">USEFUL INFORMATION</p>
+					<div class="useful_information">
+
+				<a href="#" class="text_black__footer">
+					Sales terms
+				</a>
+				<a href="#" class="text_black__footer">
+					Customer care
+				</a>
+				<a href="#" class="text_black__footer">
+					Delivery
+				</a>
+				<a href="#" class="text_black__footer">
+					Architect accounts
+				</a>
+				<a href="#" class="text_black__footer">
+					Careers
+				</a>
+				<a href="#" class="text_black__footer">
+					Exchanges & returns
+				</a>
+					</div>
+
+				</div>
+
+				<div class="lets_stay_in_touch">
+				<p class="headline__footer">LET'S STAY IN TOUCH</p>
+				<p class="text__st">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
+				<div class="input__button">
+				<input class="input" type="text" placeholder="your email address"><i class="fab fa-telegram-plane"></i>
+				</div>
+				</div>
+
+			</div>
+
+			<div class="info__footer">
+				<p class="text__footer">&copy; Copyright - INTERIOR {% now 'Y' %}. All Rights Reserved.</p>
+				<div class="social-links">
+					<a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+					<a href="#" class="social-link"><i class="fab fa-twitter-square"></i></a>
+					<a href="#" class="social-link"><i class="fab fa-google-plus-square"></i></a>
+					<a href="#" class="social-link">
+					<i class="fab fa-pinterest-square"></i></a>
+				</div>
+				<p class="text__footer">Terms & Conditions  /  Privacy policy & Cookies</p>
+			</div>
+		</footer>
+
+	</div>
+</body>
