@@ -16,6 +16,7 @@ class Product(models.Model):
     min_des = models.TextField(verbose_name='краткое описание', blank=True)
     price = models.DecimalField(verbose_name='цена', max_digits=8, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(verbose_name='кол-во', default=0)
+    mark = models.CharField(verbose_name='маркер', max_length=128, blank=True)
 
     def __str__(self):
         return f'{self.name}({self.category.name})'

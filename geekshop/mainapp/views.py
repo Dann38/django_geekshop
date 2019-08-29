@@ -18,11 +18,15 @@ product_type = [
 ]
 
 def main(request):
-    products = Product.objects.all()
+    products = Product.objects
+    products4 = products.all()[:4]
+    products_exclusive = products.filter(mark='exclusive')
+
     context = {
         'title':'Главная',
         "list_menu": menu,
-        'products': products,
+        'products4': products4,
+        'products_exclusive': products_exclusive,
     }
     return render(request, 'mainapp/index.html', context=context)
 
