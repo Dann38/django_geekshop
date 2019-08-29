@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Product
 
 # Create your views here.
 menu = [
@@ -17,9 +18,11 @@ product_type = [
 ]
 
 def main(request):
+    products = Product.objects.all()
     context = {
         'title':'Главная',
         "list_menu": menu,
+        'products': products,
     }
     return render(request, 'mainapp/index.html', context=context)
 

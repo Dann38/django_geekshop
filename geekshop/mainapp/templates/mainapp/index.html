@@ -37,14 +37,15 @@
 			<a class="button__ghost" href="{% url 'products' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
-			<div class="wrapper" style="background-image: url(/static/img/product-1.png);">
-				<div class="product__min">
-					<a href="{% url 'product' %}" class="button button__min">></a>
-					<p class="headline__min">Fishnet Chair</p>
-					<p class="info info__min">Seat and back with upholstery made of cold cure foam. </p>
+			{% for product in products %}
+				<div class="wrapper" style="background-image: url(/media/{{product.image}});">
+					<div class="product__min">
+						<a href="{% url 'product' %}" class="button button__min">></a>
+						<p class="headline__min">{{product.name}}</p>
+						<p class="info info__min">{{product.min_des}}</p>
+					</div>
 				</div>
-			</div>
-
+			{% endfor %}
 			<!--<div class="wrapper" style="background-image: url(/static/img/product-2.png);">-->
 				<!--<div class="product__min">-->
 					<!--<a href="#" class="button button__min">></a>-->
