@@ -2,33 +2,36 @@ from django.shortcuts import render
 from .models import Product
 
 # Create your views here.
-menu = [
+MENU = [
     {'href': 'main', 'name': 'home'},
-    {'href': 'products2:products', 'name': 'products'},
+    {'href': 'products_url:products', 'name': 'products'},
     {'href': 'contacts', 'name': 'contacts'},
 ]
 
 product_type = [
-    {'href': 'products2:all', 'name': 'all'},
-    {'href': 'products2:home', 'name': 'home'},
-    {'href': 'products2:office', 'name': 'office'},
-    {'href': 'products2:furniture', 'name': 'furniture'},
-    {'href': 'products2:modern', 'name': 'modern'},
-    {'href': 'products2:classic', 'name': 'classic'},
+    {'href': 'products_url:all', 'name': 'all'},
+    {'href': 'products_url:home', 'name': 'home'},
+    {'href': 'products_url:office', 'name': 'office'},
+    {'href': 'products_url:furniture', 'name': 'furniture'},
+    {'href': 'products_url:modern', 'name': 'modern'},
+    {'href': 'products_url:classic', 'name': 'classic'},
 ]
 
-def main(request):
-    products = Product.objects
-    products_shelf2 = products.filter(mark='')[:4]
-    products_exclusive = products.filter(mark='exclusive')[:2]
-    products_trending = products.filter(mark='trending')[:6]
-    products_shelf6_max = products.filter(mark='')[4:5]
-    products_shelf6_min = products.filter(mark='')[5:9]
+products = Product.objects
+PRODUCT_WITHOUT_MARK = products.filter(mark='')
+PRODUCT_EXCLUSIVE = products.filter(mark='exclusive')
+PRODUCT_TRENDING = products.filter(mark='trending')
 
+def main(request):
+    products_shelf2 = PRODUCT_WITHOUT_MARK[:4]
+    products_exclusive = PRODUCT_EXCLUSIVE[:2]
+    products_trending = PRODUCT_TRENDING[:6]
+    products_shelf6_max = PRODUCT_WITHOUT_MARK[4:5]
+    products_shelf6_min = PRODUCT_WITHOUT_MARK[:4]
 
     context = {
         'title':'Главная',
-        "list_menu": menu,
+        "list_menu": MENU,
         'products_shelf2': products_shelf2,
         'products_exclusive': products_exclusive,
         'products_trending': products_trending,
@@ -42,7 +45,7 @@ def main(request):
 def contacts(request):
     context = {
         'title': 'Контакты',
-        "list_menu": menu,
+        "list_menu": MENU,
     }
     return render(request, 'mainapp/contacts.html', context=context)
 
@@ -50,7 +53,7 @@ def contacts(request):
 def products(request):
     context = {
         'title': 'Продукты',
-        "list_menu": menu,
+        "list_menu": MENU,
         'product_list_menu': product_type
     }
     return render(request, 'mainapp/products.html', context=context)
@@ -59,7 +62,7 @@ def products(request):
 def product(request):
     context = {
         'title': 'Продукт',
-        "list_menu": menu,
+        "list_menu": MENU,
         'product_list_menu': product_type
     }
     return render(request, 'mainapp/product.html', context=context)

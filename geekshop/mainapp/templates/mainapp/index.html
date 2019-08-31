@@ -34,7 +34,7 @@
 				<li><a class="headline__normal headline__menu active__link" href="#">Featured</a></li>
 				<li><a class="headline__normal headline__menu" href="#">New</a></li>
 			</ul>
-			<a class="button__ghost" href="{% url 'products2:all' %}">EXPLORE ALL ></a>
+			<a class="button__ghost" href="{% url 'products_url:all' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
 			{% for product in products_shelf2 %}
@@ -71,7 +71,7 @@
 	<div class="shelf shelf4 shelf__min">
 		<div class="menu__shelf__min">
 			<p class="headline__normal">Trending Products</p>
-			<a class="button__ghost" href="{% url 'products2:all' %}">EXPLORE ALL ></a>
+			<a class="button__ghost" href="{% url 'products_url:all' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
 			{% for product in products_trending %}
@@ -107,12 +107,12 @@
 
 	<div class="shelf shelf6 shelf__min">
 		{% for product in products_shelf6_max %}
-			<div class="product__max2" style="background-image: url(/static/img/product-1-lg.png);">
+			<div class="product__max2" style="background-image: url(/media/{{product.image}});">
 				<div class="poster__normal__content">
 					<p class="mark mark-blue">{{product.mark|title}}</p>
 					<p class="headline__normal">{{product.name}}</p>
 					<p class="info">{{product.des_min}}</p>
-					<a href="/media/{{product.image}}" class="button">ORDER US ></a>
+					<a href="{% url 'product' %}" class="button">ORDER US ></a>
 				</div>
 			</div>
 		{% endfor %}
