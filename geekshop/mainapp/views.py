@@ -19,15 +19,23 @@ product_type = [
 
 def main(request):
     products = Product.objects
-    products4 = products.all()[:4]
-    products_exclusive = products.filter(mark='exclusive')
+    products_shelf2 = products.filter(mark='')[:4]
+    products_exclusive = products.filter(mark='exclusive')[:2]
+    products_trending = products.filter(mark='trending')[:6]
+    products_shelf6_max = products.filter(mark='')[4:5]
+    products_shelf6_min = products.filter(mark='')[5:9]
+
 
     context = {
         'title':'Главная',
         "list_menu": menu,
-        'products4': products4,
+        'products_shelf2': products_shelf2,
         'products_exclusive': products_exclusive,
+        'products_trending': products_trending,
+        'products_shelf6_max': products_shelf6_max,
+        'products_shelf6_min': products_shelf6_min,
     }
+
     return render(request, 'mainapp/index.html', context=context)
 
 

@@ -37,7 +37,7 @@
 			<a class="button__ghost" href="{% url 'products' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
-			{% for product in products4 %}
+			{% for product in products_shelf2 %}
 				<div class="wrapper" style="background-image: url(/media/{{product.image}});">
 					<div class="product__min">
 						<a href="{% url 'product' %}" class="button button__min">></a>
@@ -97,12 +97,9 @@
 			<a class="button__ghost" href="{% url 'products' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
-			<a href="{% url 'product' %}" class="product__normal" style="background-image: url(/static/img/product-11.png);"></a>
-			<!--<a href="#" class="product__normal" style="background-image: url(/static/img/product-21.png);"></a>-->
-			<!--<a href="#" class="product__normal" style="background-image: url(/static/img/product-31.png);"></a>-->
-			<!--<a href="#" class="product__normal" style="background-image: url(/static/img/product-41.png);"></a>-->
-			<!--<a href="#" class="product__normal" style="background-image: url(/static/img/product-5.png);"></a>-->
-			<!--<a href="#" class="product__normal" style="background-image: url(/static/img/product-6.png);"></a>-->
+			{% for product in products_trending %}
+				<a href="{% url 'product' %}" class="product__normal" style="background-image: url(/media/{{ product.image }});"></a>
+			{% endfor %}
 		</div>
 	</div>
 
@@ -132,20 +129,21 @@
 
 
 	<div class="shelf shelf6 shelf__min">
-		<div class="product__max2" style="background-image: url(/static/img/product-1-lg.png);">
-			<div class="poster__normal__content">
-				<p class="mark mark-blue">EXCLUSIVE </p>
-				<p class="headline__normal">Fishnet Chair</p>
-				<p class="info">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-				<a href="{% url 'product' %}" class="button">ORDER US ></a>
+		{% for product in products_shelf6_max %}
+			<div class="product__max2" style="background-image: url(/static/img/product-1-lg.png);">
+				<div class="poster__normal__content">
+					<p class="mark mark-blue">{{product.mark|title}}</p>
+					<p class="headline__normal">{{product.name}}</p>
+					<p class="info">{{product.des_min}}</p>
+					<a href="/media/{{product.image}}" class="button">ORDER US ></a>
+				</div>
 			</div>
-		</div>
+		{% endfor %}
 		<div class="product__block">
 			<div class="products">
-				<a href="{% url 'product' %}" class="product__min2" style="background-image: url(/static/img/product-2-sm.png);"></a>
-				<!--<a href="#" class="product__min2" style="background-image: url(/static/img/product-3-sm.png);"></a>-->
-				<!--<a href="#" class="product__min2" style="background-image: url(/static/img/product-4-sm.png);"></a>-->
-				<!--<a href="#" class="product__min2" style="background-image: url(/static/img/product-5-sm.png);"></a>-->
+				{% for product in products_shelf6_min %}
+					<a href="{% url 'product' %}" class="product__min2" style="background-image: url(/media/{{product.image}});"></a>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
