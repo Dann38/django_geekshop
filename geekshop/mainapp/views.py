@@ -1,7 +1,27 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Product, CategoryProducts
 
 # Create your views here.
+products = Product.objects
+PRODUCT_WITHOUT_MARK = products.filter(mark='')
+PRODUCT_EXCLUSIVE = products.filter(mark='exclusive')
+PRODUCT_TRENDING = products.filter(mark='trending')
+URL_PAGE_PRODUCTS = 'mainapp:products_url:products:'
+
+category = CategoryProducts.objects.all()
+product_type = category
+
+"""
+Делаю динамическое миню сайта через f'' сделать чтоб они были похожи и в urls
+просто сделаю по пк потому что названия категорий у меня на русском 
+for ctg in category:
+    ctg_pk = ctg.pk
+    ctg_name =ctg.name
+    product_type += {'href': ctg_pk, 'name': ctg_name}
+"""
+
+
+
 MENU = [
     {'href': 'mainapp:main', 'name': 'home'},
     {'href': 'mainapp:products_url:products', 'name': 'products'},
@@ -17,10 +37,6 @@ MENU = [
 #     {'href': 'products_url:classic', 'name': 'classic'},
 # ]
 
-products = Product.objects
-PRODUCT_WITHOUT_MARK = products.filter(mark='')
-PRODUCT_EXCLUSIVE = products.filter(mark='exclusive')
-PRODUCT_TRENDING = products.filter(mark='trending')
 
 def main(request):
     products_shelf2 = PRODUCT_WITHOUT_MARK[:4]
@@ -50,11 +66,12 @@ def contacts(request):
     return render(request, 'mainapp/contacts.html', context=context)
 
 
-def products(request):
+def products(request, pk=None):
+
     context = {
         'title': 'Продукты',
         "list_menu": MENU,
-        # 'product_list_menu': product_type
+        'product_list_menu': product_type
     }
     return render(request, 'mainapp/products.html', context=context)
 
