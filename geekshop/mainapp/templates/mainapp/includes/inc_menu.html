@@ -2,6 +2,7 @@
 {% block menu %}
     <a class="avatar" href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
     <ul class="menu">
+        {{request.resolver_match.url_name}}
         {% for li_menu in list_menu %}
             <li><a href='{% url li_menu.href %}' class="menu__link
             {% if request.resolver_match.url_name == li_menu.href %}

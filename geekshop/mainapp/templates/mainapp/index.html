@@ -34,7 +34,7 @@
 				<li><a class="headline__normal headline__menu active__link" href="#">Featured</a></li>
 				<li><a class="headline__normal headline__menu" href="#">New</a></li>
 			</ul>
-			<a class="button__ghost" href="{% url 'products' %}">EXPLORE ALL ></a>
+			<a class="button__ghost" href="{% url 'products2:all' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
 			{% for product in products_shelf2 %}
@@ -46,29 +46,6 @@
 					</div>
 				</div>
 			{% endfor %}
-			<!--<div class="wrapper" style="background-image: url(/static/img/product-2.png);">-->
-				<!--<div class="product__min">-->
-					<!--<a href="#" class="button button__min">></a>-->
-					<!--<p class="headline__min">Fishnet Chair</p>-->
-					<!--<p class="info info__min">Seat and back with upholstery made of cold cure foam. </p>-->
-				<!--</div>-->
-			<!--</div>-->
-
-			<!--<div class="wrapper" style="background-image: url(/static/img/product-3.png);">-->
-				<!--<div class="product__min">-->
-					<!--<a href="#" class="button button__min">></a>-->
-					<!--<p class="headline__min">Fishnet Chair</p>-->
-					<!--<p class="info info__min">Seat and back with upholstery made of cold cure foam. </p>-->
-				<!--</div>-->
-			<!--</div>-->
-
-			<!--<div class="wrapper" style="background-image: url(/static/img/product-4.png);">-->
-				<!--<div class="product__min">-->
-					<!--<a href="#" class="button button__min">></a>-->
-					<!--<p class="headline__min">Fishnet Chair</p>-->
-					<!--<p class="info info__min">Seat and back with upholstery made of cold cure foam. </p>-->
-				<!--</div>-->
-			<!--</div>-->
 		</div>
 	</div>
 
@@ -94,7 +71,7 @@
 	<div class="shelf shelf4 shelf__min">
 		<div class="menu__shelf__min">
 			<p class="headline__normal">Trending Products</p>
-			<a class="button__ghost" href="{% url 'products' %}">EXPLORE ALL ></a>
+			<a class="button__ghost" href="{% url 'products2:all' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
 			{% for product in products_trending %}

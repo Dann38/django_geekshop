@@ -4,17 +4,17 @@ from .models import Product
 # Create your views here.
 menu = [
     {'href': 'main', 'name': 'home'},
-    {'href': 'products', 'name': 'products'},
+    {'href': 'products2:products', 'name': 'products'},
     {'href': 'contacts', 'name': 'contacts'},
 ]
 
 product_type = [
-    {'href': 'all', 'name': 'all'},
-    {'href': 'home', 'name': 'home'},
-    {'href': 'office', 'name': 'office'},
-    {'href': 'furniture', 'name': 'furniture'},
-    {'href': 'modern', 'name': 'modern'},
-    {'href': 'classic', 'name': 'classic'},
+    {'href': 'products2:all', 'name': 'all'},
+    {'href': 'products2:home', 'name': 'home'},
+    {'href': 'products2:office', 'name': 'office'},
+    {'href': 'products2:furniture', 'name': 'furniture'},
+    {'href': 'products2:modern', 'name': 'modern'},
+    {'href': 'products2:classic', 'name': 'classic'},
 ]
 
 def main(request):
