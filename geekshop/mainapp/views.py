@@ -3,19 +3,19 @@ from .models import Product
 
 # Create your views here.
 MENU = [
-    {'href': 'main', 'name': 'home'},
-    {'href': 'products_url:products', 'name': 'products'},
-    {'href': 'contacts', 'name': 'contacts'},
+    {'href': 'mainapp:main', 'name': 'home'},
+    {'href': 'mainapp:products_url:products', 'name': 'products'},
+    {'href': 'mainapp:contacts', 'name': 'contacts'},
 ]
 
-product_type = [
-    {'href': 'products_url:all', 'name': 'all'},
-    {'href': 'products_url:home', 'name': 'home'},
-    {'href': 'products_url:office', 'name': 'office'},
-    {'href': 'products_url:furniture', 'name': 'furniture'},
-    {'href': 'products_url:modern', 'name': 'modern'},
-    {'href': 'products_url:classic', 'name': 'classic'},
-]
+# product_type = [
+#     {'href': 'products_url:all', 'name': 'all'},
+#     {'href': 'products_url:home', 'name': 'home'},
+#     {'href': 'products_url:office', 'name': 'office'},
+#     {'href': 'products_url:furniture', 'name': 'furniture'},
+#     {'href': 'products_url:modern', 'name': 'modern'},
+#     {'href': 'products_url:classic', 'name': 'classic'},
+# ]
 
 products = Product.objects
 PRODUCT_WITHOUT_MARK = products.filter(mark='')
@@ -54,7 +54,7 @@ def products(request):
     context = {
         'title': 'Продукты',
         "list_menu": MENU,
-        'product_list_menu': product_type
+        # 'product_list_menu': product_type
     }
     return render(request, 'mainapp/products.html', context=context)
 
@@ -63,6 +63,6 @@ def product(request):
     context = {
         'title': 'Продукт',
         "list_menu": MENU,
-        'product_list_menu': product_type
+        # 'product_list_menu': product_type
     }
     return render(request, 'mainapp/product.html', context=context)

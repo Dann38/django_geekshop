@@ -14,7 +14,7 @@
 			<p class="mark mark-green">TRENDING</p>
 			<p class="headline__max">Fishnet Chair</p>
 			<p class="info">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-			<a href="{% url 'product' %}" class="button">ORDER US ></a>
+			<a href="{% url 'mainapp:product' %}" class="button">ORDER US ></a>
 		</div>
 
 		<div class="slider__pagination">
@@ -34,13 +34,13 @@
 				<li><a class="headline__normal headline__menu active__link" href="#">Featured</a></li>
 				<li><a class="headline__normal headline__menu" href="#">New</a></li>
 			</ul>
-			<a class="button__ghost" href="{% url 'products_url:all' %}">EXPLORE ALL ></a>
+			<a class="button__ghost" href="{% url 'mainapp:products_url:all' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
 			{% for product in products_shelf2 %}
 				<div class="wrapper" style="background-image: url(/media/{{product.image}});">
 					<div class="product__min">
-						<a href="{% url 'product' %}" class="button button__min">></a>
+						<a href="{% url 'mainapp:product' %}" class="button button__min">></a>
 						<p class="headline__min">{{product.name}}</p>
 						<p class="info info__min">{{product.min_des}}</p>
 					</div>
@@ -71,11 +71,11 @@
 	<div class="shelf shelf4 shelf__min">
 		<div class="menu__shelf__min">
 			<p class="headline__normal">Trending Products</p>
-			<a class="button__ghost" href="{% url 'products_url:all' %}">EXPLORE ALL ></a>
+			<a class="button__ghost" href="{% url 'mainapp:products_url:all' %}">EXPLORE ALL ></a>
 		</div>
 		<div class="products">
 			{% for product in products_trending %}
-				<a href="{% url 'product' %}" class="product__normal" style="background-image: url(/media/{{ product.image }});"></a>
+				<a href="{% url 'mainapp:product' %}" class="product__normal" style="background-image: url(/media/{{ product.image }});"></a>
 			{% endfor %}
 		</div>
 	</div>
@@ -91,7 +91,7 @@
 			<p class="mark mark-red">HOT DEAL</p>
 			<p class="headline__max">Fishnet Chair</p>
 			<p class="info">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-			<a href="{% url 'product' %}" class="button">ORDER US ></a>
+			<a href="{% url 'mainapp:product' %}" class="button">ORDER US ></a>
 		</div>
 
 		<div class="slider__pagination">
@@ -112,14 +112,14 @@
 					<p class="mark mark-blue">{{product.mark|title}}</p>
 					<p class="headline__normal">{{product.name}}</p>
 					<p class="info">{{product.des_min}}</p>
-					<a href="{% url 'product' %}" class="button">ORDER US ></a>
+					<a href="{% url 'mainapp:product' %}" class="button">ORDER US ></a>
 				</div>
 			</div>
 		{% endfor %}
 		<div class="product__block">
 			<div class="products">
 				{% for product in products_shelf6_min %}
-					<a href="{% url 'product' %}" class="product__min2" style="background-image: url(/media/{{product.image}});"></a>
+					<a href="{% url 'mainapp:product' %}" class="product__min2" style="background-image: url(/media/{{product.image}});"></a>
 				{% endfor %}
 			</div>
 		</div>
