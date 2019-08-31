@@ -8,8 +8,7 @@ PRODUCT_EXCLUSIVE = products.filter(mark='exclusive')
 PRODUCT_TRENDING = products.filter(mark='trending')
 URL_PAGE_PRODUCTS = 'mainapp:products_url:products:'
 
-category = CategoryProducts.objects.all()
-product_type = category
+product_type = CategoryProducts.objects.all()
 
 """
 Делаю динамическое миню сайта через f'' сделать чтоб они были похожи и в urls
@@ -23,9 +22,9 @@ for ctg in category:
 
 
 MENU = [
-    {'href': 'mainapp:main', 'name': 'home'},
-    {'href': 'mainapp:products_url:products', 'name': 'products'},
-    {'href': 'mainapp:contacts', 'name': 'contacts'},
+    {'href': 'mainapp:main', 'name': 'home', 'act':'main'},
+    {'href': 'mainapp:products_url:products', 'name': 'products', 'act':'products'},
+    {'href': 'mainapp:contacts', 'name': 'contacts', 'act':'contacts'},
 ]
 
 # product_type = [
@@ -68,10 +67,20 @@ def contacts(request):
 
 def products(request, pk=None):
 
+
+
+    if pk != None:
+        pk = int(pk)
+        pk_ctg = CategoryProducts.objects.get(pk=pk)
+        products_ctg = Product.objects.filter(category=pk_ctg)
+    else:
+        products_ctg = Product.objects.all()
+
     context = {
         'title': 'Продукты',
         "list_menu": MENU,
-        'product_list_menu': product_type
+        'product_list_menu': product_type,
+        'products_ctg': products_ctg,
     }
     return render(request, 'mainapp/products.html', context=context)
 
@@ -80,6 +89,6 @@ def product(request):
     context = {
         'title': 'Продукт',
         "list_menu": MENU,
-        # 'product_list_menu': product_type
+        'product_list_menu': product_type,
     }
     return render(request, 'mainapp/product.html', context=context)

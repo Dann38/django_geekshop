@@ -19,9 +19,11 @@
 		<div class="menu__shelf__min">
 			{% include 'mainapp/includes/inc_menu_product.html' %}
 		</div>
-		<div class="products">
-			<a href="{% url 'mainapp:product' %}" class="product__normal" style="background-image: url(/static/img/product-11.png);"></a>
-		</div>
+			<div class="products">
+				{% for product in products_ctg %}
+					<a href="{% url 'mainapp:product' %}" class="product__normal" style="background-image: url(/media/{{product.image}}); background-repeat:no-repeat;"></a>
+				{% endfor %}
+			</div>
 		<p class="fa-sync-alt__p"><a href="#"><i class="fas fa-sync-alt"></i></a></p>
 	</div>
 
