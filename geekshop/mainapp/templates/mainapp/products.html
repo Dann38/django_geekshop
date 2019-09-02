@@ -19,9 +19,11 @@
 		<div class="menu__shelf__min">
 			{% include 'mainapp/includes/inc_menu_product.html' %}
 		</div>
-		<div class="products">
-			<a href="{% url 'product' %}" class="product__normal" style="background-image: url(/static/img/product-11.png);"></a>
-		</div>
+			<div class="products">
+				{% for product in products_ctg %}
+					<a href="{% url 'mainapp:product' %}" class="product__normal" style="background-image: url(/media/{{product.image}}); background-repeat:no-repeat;"></a>
+				{% endfor %}
+			</div>
 		<p class="fa-sync-alt__p"><a href="#"><i class="fas fa-sync-alt"></i></a></p>
 	</div>
 
@@ -33,7 +35,7 @@
 				<p class="mark mark-blue">EXCLUSIVE ></p>
 				<p class="headline__normal">Fishnet Chair</p>
 				<p class="info">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
-				<a href="{% url 'product' %}" class="button">ORDER US > </a>
+				<a href="{% url 'mainapp:product' %}" class="button">ORDER US > </a>
 			</div>
 		</div>
 	</div>
