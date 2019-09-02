@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% block title %}
+		<title>{{ title|title }}</title>
+	{% endblock %}
+    {% block css %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock%}
+    {% block fonts %}
+        <link href="{% static 'fonts/Montserrat.ttf' %}" rel="stylesheet">
+    {% endblock %}
+	{% block js %}
+	{% endblock %}
+	<!--<link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700" rel="stylesheet">&ndash;&gt;-->
+</head>
+<body>
+	<div class="container">
+        <div class="h2 text-center head  poster__content poster__content2">
+            <p class="headline__title headline__max">Вход в систему</p>
+        </div>
+		<div class="shelfs">
+        	{% block content %}
+
+            {% endblock %}
+		</div>
+
+
+	</div>
+</body>
+</html>
