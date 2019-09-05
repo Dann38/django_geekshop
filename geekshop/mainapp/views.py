@@ -10,20 +10,11 @@ URL_PAGE_PRODUCTS = 'mainapp:products_url:products:'
 
 product_type = CategoryProducts.objects.all()
 
-"""
-Делаю динамическое миню сайта через f'' сделать чтоб они были похожи и в urls
-просто сделаю по пк потому что названия категорий у меня на русском 
-for ctg in category:
-    ctg_pk = ctg.pk
-    ctg_name =ctg.name
-    product_type += {'href': ctg_pk, 'name': ctg_name}
-"""
-
-
 
 MENU = [
     {'href': 'mainapp:main', 'name': 'home', 'act':'main'},
-    {'href': 'mainapp:products_url:products', 'name': 'products', 'act':'products'},
+    {'href': 'mainapp:products_url:products', 'name': 'products', 'act':'products',
+     'namespace': 'mainapp:products_url'},
     {'href': 'mainapp:contacts', 'name': 'contacts', 'act':'contacts'},
 ]
 
@@ -66,24 +57,40 @@ def contacts(request):
 
 
 def products(request, pk=None):
+    title = 'Продукты'
 
     if pk != None:
-        pk = int(pk)
-        pk_ctg = CategoryProducts.objects.get(pk=pk)
-        category = get_object_or_404(CategoryProducts, pk=pk)
-        products_ctg = Product.objects.filter(category=pk_ctg)
-    else:
-        category = {'name': 'все'}
-        products_ctg = Product.objects.all()
+        if pk == 0:
+            category = {'name': 'все'}
+            products_ctg = Product.objects.all() # Сделать сортировку
+        else:
+            pk = int(pk)
+            category = get_object_or_404(CategoryProducts, pk=pk)
+            products_ctg = Product.objects.filter(category__pk=pk) # Сделать сортировку
+
+
+
+        context = {
+            'title': title,
+            "list_menu": MENU,
+            'product_list_menu': product_type,
+            'products_ctg': products_ctg,
+            'category': category,
+        }
+
+        return render(request, 'mainapp/products_list.html', context=context)
+
+    same_products = Product.objects.all()[:3]
 
     context = {
-        'title': 'Продукты',
-        "list_menu": MENU,
+        'title': title,
+        'list_menu': MENU,
         'product_list_menu': product_type,
-        'products_ctg': products_ctg,
-        'category': category,
+        'products_ctg': same_products,
     }
-    return render(request, 'mainapp/products.html', context=context)
+
+    return render(request, 'mainapp/products.html', context)
+
 
 
 def product(request):

@@ -9,5 +9,14 @@
     "quantity": "7",
     "mark": ""
   },
-
+  {
+    "category": "Лампы",
+    "name": "Обыкновенная Лампа",
+    "image": "products_images/product-1.png",
+    "description":"Хорошая лампа",
+    "min_des": "Хорошая лампа",
+    "price":"1674.00",
+    "quantity": "5",
+    "mark": ""
+  }
 ]

@@ -4,7 +4,7 @@
     <ul class="menu">
         {% for li_menu in list_menu %}
             <li><a href='{% url li_menu.href %}' class="menu__link
-            {% if request.resolver_match.url_name == li_menu.act%}
+            {% if request.resolver_match.url_name == li_menu.act or request.resolver_match.namespace == li_menu.namespace %}
                 active__link
             {% endif %}">
                 {{li_menu.name}}

@@ -1,0 +1,42 @@
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	<div class="shelf shelf1 shelf__max our_products_range">
+		<div class="poster padding-site">
+			<header class="title">
+				{% include 'mainapp/includes/inc_menu.html' %}
+			</header>
+		</div>
+		<div class="poster__content poster__content2">
+			<p class="headline__title headline__max">{{category.name|title}}</p>
+		</div>
+	</div>
+
+
+
+	<div class="shelf shelf2 shelf__min">
+		<div class="menu__shelf__min">
+			{% include 'mainapp/includes/inc_menu_product.html' %}
+		</div>
+			<div class="products">
+				{% for product in products_ctg %}
+					<a href="{% url 'mainapp:product' %}" class="product__normal" style="background-image: url(/media/{{product.image}}); background-repeat:no-repeat;"></a>
+				{% endfor %}
+			</div>
+		<p class="fa-sync-alt__p"><a href="#"><i class="fas fa-sync-alt"></i></a></p>
+	</div>
+
+
+
+	<div class="shelf shelf3 shelf__max2">
+		<div class="product__max" style="background-image: url(/static/img/promo-img1.png);">
+			<div class="poster__normal__content">
+				<p class="mark mark-blue">EXCLUSIVE ></p>
+				<p class="headline__normal">Fishnet Chair</p>
+				<p class="info">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt powder-coated black or highly polished chrome.</p>
+				<a href="{% url 'mainapp:product' %}" class="button">ORDER US > </a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

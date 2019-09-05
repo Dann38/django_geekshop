@@ -1,6 +1,12 @@
 {% load staticfiles %}
 {% block menu_product %}
     <ul class="menu">
+        <li>
+            <a href="{% url 'mainapp:products_url:category' 0 %}" class="menu__product1
+            {% if 0 == request.resolver_match.kwargs.pk %}
+            active__link1
+            {% endif %}">все</a>
+        </li>
         {% for menu_li in product_list_menu %}
             <li><a href="{% url 'mainapp:products_url:category' menu_li.pk %}" class="menu__product1
             {% if menu_li.pk == request.resolver_match.kwargs.pk %}
