@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product, CategoryProducts
 
 # Create your views here.
@@ -67,13 +67,13 @@ def contacts(request):
 
 def products(request, pk=None):
 
-
-
     if pk != None:
         pk = int(pk)
         pk_ctg = CategoryProducts.objects.get(pk=pk)
+        category = get_object_or_404(CategoryProducts, pk=pk)
         products_ctg = Product.objects.filter(category=pk_ctg)
     else:
+        category = {'name': 'все'}
         products_ctg = Product.objects.all()
 
     context = {
@@ -81,6 +81,7 @@ def products(request, pk=None):
         "list_menu": MENU,
         'product_list_menu': product_type,
         'products_ctg': products_ctg,
+        'category': category,
     }
     return render(request, 'mainapp/products.html', context=context)
 
