@@ -10,6 +10,20 @@
                 {{li_menu.name}}
             </a></li>
         {% endfor %}
+        {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'auth:edit' %}" class="menu__link">
+                    {{user.first_name|default:'Пользоваель'}}
+                </a>
+            </li>
+        {% endif %}
+        <li>
+            {% if user.is_authenticated %}
+                <a href="{% url 'auth:logout' %}" class="menu__link">Выйти</a>
+            {% else %}
+                <a href="{% url 'auth:login' %}" class="menu__link">Войти</a>
+            {% endif %}
+        </li>
         <li><a href="#" class="menu__link"><img src="{% static 'img/search.svg' %}" alt="search"></a></li>
     </ul>
 {% endblock %}

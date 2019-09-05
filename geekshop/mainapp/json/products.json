@@ -1,0 +1,13 @@
+[
+  {
+    "category": "Стулья",
+    "name": "Обыкновенный Стул",
+    "image": "products_images/product-2.png",
+    "description":"Хороший стул",
+    "min_des": "Хороший стул",
+    "price":"1234.00",
+    "quantity": "7",
+    "mark": ""
+  }
+
+]
