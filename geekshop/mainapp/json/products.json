@@ -10,6 +10,26 @@
     "mark": ""
   },
   {
+    "category": "Стулья",
+    "name": "Мягкий Стул",
+    "image": "products_images/product-4.png",
+    "description":"Мягкий стул",
+    "min_des": "Мягкий стул",
+    "price":"1432.00",
+    "quantity": "5",
+    "mark": ""
+  },
+  {
+    "category": "Стулья",
+    "name": "Удобный Стул",
+    "image": "products_images/product-21.png",
+    "description":"Удобный стул",
+    "min_des": "Удобный стул",
+    "price":"1224.00",
+    "quantity": "3",
+    "mark": ""
+  },
+  {
     "category": "Лампы",
     "name": "Обыкновенная Лампа",
     "image": "products_images/product-1.png",
