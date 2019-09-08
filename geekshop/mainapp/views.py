@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, CategoryProducts
+from basketapp.models import Basket
 
 # Create your views here.
 products = Product.objects
@@ -28,7 +29,12 @@ MENU = [
 # ]
 
 
+
 def main(request):
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     products_shelf2 = PRODUCT_WITHOUT_MARK[:4]
     products_exclusive = PRODUCT_EXCLUSIVE[:2]
     products_trending = PRODUCT_TRENDING[:6]
@@ -43,21 +49,30 @@ def main(request):
         'products_trending': products_trending,
         'products_shelf6_max': products_shelf6_max,
         'products_shelf6_min': products_shelf6_min,
+        'basket': basket,
     }
 
     return render(request, 'mainapp/index.html', context=context)
 
 
 def contacts(request):
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     context = {
         'title': 'Контакты',
         "list_menu": MENU,
+        'basket': basket,
     }
     return render(request, 'mainapp/contacts.html', context=context)
 
 
 def products(request, pk=None):
     title = 'Продукты'
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
 
     if pk != None:
         if pk == 0:
@@ -76,6 +91,7 @@ def products(request, pk=None):
             'product_list_menu': product_type,
             'products_ctg': products_ctg,
             'category': category,
+            'basket': basket,
         }
 
         return render(request, 'mainapp/products_list.html', context=context)
@@ -87,6 +103,7 @@ def products(request, pk=None):
         'list_menu': MENU,
         'product_list_menu': product_type,
         'products_ctg': same_products,
+        'basket': basket,
     }
 
     return render(request, 'mainapp/products.html', context)
@@ -94,9 +111,14 @@ def products(request, pk=None):
 
 
 def product(request):
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     context = {
         'title': 'Продукт',
         "list_menu": MENU,
         'product_list_menu': product_type,
+        'basket': basket,
     }
     return render(request, 'mainapp/product.html', context=context)

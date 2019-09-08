@@ -26,4 +26,15 @@
         </li>
         <li><a href="#" class="menu__link"><img src="{% static 'img/search.svg' %}" alt="search"></a></li>
     </ul>
+    <a href="{% url 'basket:view' %}">
+        <span>
+            {% if basket != None %}
+                <div>
+                    {% for pr_basket in basket %}
+                        <li>{{pr_basket}}</li>
+                    {% endfor %}
+                </div>
+            {% endif%}
+        </span>
+    </a>
 {% endblock %}

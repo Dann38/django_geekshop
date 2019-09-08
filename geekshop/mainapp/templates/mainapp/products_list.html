@@ -21,7 +21,11 @@
 		</div>
 			<div class="products">
 				{% for product in products_ctg %}
-					<a href="{% url 'mainapp:product' %}" class="product__normal" style="background-image: url(/media/{{product.image}}); background-repeat:no-repeat;"></a>
+				<div>
+						<a href="{% url 'mainapp:product' %}" class="product__normal" style="background-image: url(/media/{{product.image}}); background-repeat:no-repeat;"></a>
+					<a href="{% url 'basket:add' product.pk %}" class="button">Купить</a>
+				</div>
+
 				{% endfor %}
 			</div>
 		<p class="fa-sync-alt__p"><a href="#"><i class="fas fa-sync-alt"></i></a></p>
