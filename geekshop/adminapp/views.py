@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from authapp.models import ShopUser
-from ..mainapp.models import Product, CategoryProducts
+from mainapp.models import Product, CategoryProducts
 
 
 
