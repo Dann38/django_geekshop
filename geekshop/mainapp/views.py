@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, CategoryProducts
 from basketapp.models import Basket
+import random
 
 # Create your views here.
 products = Product.objects
@@ -28,12 +29,28 @@ MENU = [
 #     {'href': 'products_url:classic', 'name': 'classic'},
 # ]
 
+def get_basket(user):
+    if user.is_authenticated:
+        basket = Basket.objects.filter(user=user)
+    else:
+        basket = []
+
+    return basket
+
+
+def get_hot_product():
+    products = Product.objects.all()
+
+    return random.sample(list(products), 1)[0]
+
+def get_same_products(hot_producs):
+    same_products = Product.objects.filter(category=hot_producs.category).\
+                                    exclude(pk=hot_producs.pk)[ :2]
+    return same_products
 
 
 def main(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+    basket = get_basket(request.user)
 
     products_shelf2 = PRODUCT_WITHOUT_MARK[:4]
     products_exclusive = PRODUCT_EXCLUSIVE[:2]
@@ -56,9 +73,7 @@ def main(request):
 
 
 def contacts(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+    basket = get_basket(request.user)
 
     context = {
         'title': 'Контакты',
@@ -70,9 +85,7 @@ def contacts(request):
 
 def products(request, pk=None):
     title = 'Продукты'
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+    basket = get_basket(request.user)
 
     if pk != None:
         if pk == 0:
@@ -109,14 +122,22 @@ def products(request, pk=None):
     return render(request, 'mainapp/products.html', context)
 
 
+def product(request, pk=None):
+    basket = get_basket(request.user)
 
-def product(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+    product_list = Product.objects.filter(pk=pk)
+    for prd in product_list:
+        product = prd
+
+    hot_product = get_hot_product()
+    same_products = get_same_products(hot_product)
+
 
     context = {
         'title': 'Продукт',
+        'product_list': product_list,
+        'hot_product': hot_product,
+        'same_products': same_products,
         "list_menu": MENU,
         'product_list_menu': product_type,
         'basket': basket,

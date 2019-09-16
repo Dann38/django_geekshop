@@ -28,12 +28,11 @@
     </ul>
     <a href="{% url 'basket:view' %}">
         <span>
-            {% if basket != None %}
-                <div>
-                    {% for pr_basket in basket %}
-                        <li>{{pr_basket}}</li>
-                    {% endfor %}
-                </div>
+            {% if basket  %}
+                <span>
+                    {{ basket.0.total_cost|floatformat:0 }} руб.
+                    ({{ basket.0.total_quantity }} шт.)
+                </span>
             {% endif%}
         </span>
     </a>

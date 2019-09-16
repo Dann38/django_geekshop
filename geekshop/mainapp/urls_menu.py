@@ -8,6 +8,6 @@ urlpatterns = [
     path('contacts/', views.contacts, name='contacts'),
     path('products/', include('mainapp.urls_menu_products', namespace='products_url')),
 
-    path('product/', views.product, name='product'),
+    path('product/<int:pk>', views.product, name='product'),
 
 ]

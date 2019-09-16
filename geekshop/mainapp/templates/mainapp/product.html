@@ -13,38 +13,36 @@
 				</div>
 			</div>
 
+			{% for product in product_list %}
 			<div class="product__max__shop shelf shelf__min ">
 				<div class="photos__product">
-					<a href="" class="big__img"><img src="{% static 'img/slider1.png' %}" alt="product"></a>
+					<a href="" ><img src="/media/{{ product.image }}" class="big__img" alt="product"></a>
 					<div class="min__imgs">
-						<a href="#" class="min__img"><img src="{% static 'img/controll.png' %}" alt="min product"></a>
-						<a href="#" class="min__img"><img src="{% static 'img/controll11.png' %}" alt="min product"></a>
-						<a href="#" class="min__img"><img src="{% static 'img/controll2.png' %}" alt="min product"></a>
+						<a href="#" ><img src="/media/{{ product.image }}" class="min__img" alt="min product"></a>
+						<a href="#" ><img src="/media/{{ product.image }}" class="min__img" alt="min product"></a>
+						<a href="#" ><img src="/media/{{ product.image }}" class="min__img" alt="min product"></a>
 					</div>
 				</div>
 				<div class="info__product__shop">
-					<p class="name__product">Fishnet Chair</p>
-					<p class="price">$<span class="mark-price">36.7</span>/sq</p>
+					<p class="name__product">{{ product.name }}</p>
+					<p class="price"><span class="mark-price">{{ product.price }}</span> руб.</p>
 					<p class="mark-red mark">Hot Deal</p>
-					<a href="" class="button red__button">ORDER US ></a>
+					<a href="{% url 'basket:add' product.pk %}" class="button red__button">Купить></a>
 					<div>
-						<p class="text__product">The majesty of Mountains - Ugmonk style.</p>
-						<p class="text__product">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p>
-						<p class="text__product"> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-						<p class="text__product">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+						<p class="text__product">{{ product.description }}</p>
 					</div>
 				</div>
 			</div>
-			
+			{% endfor %}
 
 			<div class="shelf shelf3 shelf__min">
 				<div class="menu__shelf__min">
-					<p class="headline__normal">Trending Products</p>
+					<p class="headline__normal">Похожие</p>
 					<a class="button__ghost" href="{% url 'mainapp:products_url:products' %}">EXPLORE ALL ></a>
 				</div>
 				<div class="products">
-					{% for product in products_trending %}
-						<a href="{% url 'mainapp:product' %}" class="product__normal" style="background-image: url(/media/{{product.image}});"></a>
+					{% for product in same_products %}
+						<a href="{% url 'mainapp:product' product.pk %}" class="product__normal" style="background-image: url(/media/{{product.image}});"></a>
 					{% endfor %}
 				</div>
 			</div>
