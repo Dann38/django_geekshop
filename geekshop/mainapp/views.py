@@ -14,10 +14,10 @@ product_type = CategoryProducts.objects.all()
 
 
 MENU = [
-    {'href': 'mainapp:main', 'name': 'home', 'act':'main'},
-    {'href': 'mainapp:products_url:products', 'name': 'products', 'act':'products',
+    {'href': 'mainapp:main', 'name': 'Главная', 'act':'main'},
+    {'href': 'mainapp:products_url:products', 'name': 'Продукты', 'act':'products',
      'namespace': 'mainapp:products_url'},
-    {'href': 'mainapp:contacts', 'name': 'contacts', 'act':'contacts'},
+    {'href': 'mainapp:contacts', 'name': 'Контакты', 'act':'contacts'},
 ]
 
 # product_type = [
